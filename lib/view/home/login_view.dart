@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:izam_task/presenter/home/login_presenter.dart';
+import 'package:izam_task/presenter/home/login_presenter_component.dart';
 import 'package:izam_task/utils/app_colors.dart';
 import 'package:izam_task/widget/button_widget.dart';
 import 'package:izam_task/widget/text_field_widget.dart';
@@ -14,10 +16,20 @@ class LoginView extends StatefulWidget {
   State<LoginView> createState() => _LoginViewState();
 }
 
-class _LoginViewState extends State<LoginView> implements HomeViewComponent{
+class _LoginViewState extends State<LoginView> implements LoginViewComponent{
 
+  late LoginPresenterComponent component;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+
+  @override
+  void initState() {
+    super.initState();
+    component = LoginPresenter();
+    component.setView(this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +62,7 @@ class _LoginViewState extends State<LoginView> implements HomeViewComponent{
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          ButtonWidget(width: ScreenUtil().setWidth(60), height: ScreenUtil().setHeight(30), onTap: (){}, name: 'signIn'.tr),
+                          ButtonWidget(width: ScreenUtil().setWidth(60), height: ScreenUtil().setHeight(30), onTap: (){checkEmail(emailController.value.text.toString() , passwordController.value.text.toString());}, name: 'signIn'.tr),
                           ButtonWidget(width: ScreenUtil().setWidth(60), height: ScreenUtil().setHeight(30), onTap: (){}, name: 'signUp'.tr),
                         ],
                       ),
@@ -63,5 +75,10 @@ class _LoginViewState extends State<LoginView> implements HomeViewComponent{
         ),
       ),
     );
+  }
+
+  @override
+  void checkEmail(String email , password) {
+    component.checkEmailAndPassword(email , password);
   }
 }

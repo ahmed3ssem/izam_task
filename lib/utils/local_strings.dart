@@ -13,7 +13,13 @@ class LocalStrings extends Translations {
       "email":"E-mail",
       "password":"Password",
       "forgotPassword":"Forgot Password ?",
-      "loginPhase":"Welcome , Log In"
+      "loginPhase":"Welcome , Log In",
+      "firstTimeLogin":"This is your first time login",
+      "loginSuccess":"Congrats , this is the logging number ",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
     },
   };
 }

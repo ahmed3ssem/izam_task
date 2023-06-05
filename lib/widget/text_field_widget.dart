@@ -20,7 +20,15 @@ class TextFieldWidget extends StatefulWidget {
 }
 
 class _TextFieldWidgetState extends State<TextFieldWidget> {
-  bool passwordVisible = true;
+  bool passwordVisible = false;
+
+
+  @override
+  void initState() {
+    super.initState();
+    passwordVisible = widget.isPasswordTextField;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
