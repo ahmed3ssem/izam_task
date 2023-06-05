@@ -12,7 +12,7 @@ class LoginPresenter implements LoginPresenterComponent{
   @override
   bool checkEmailAndPassword(String email , String password) {
     RegExp emailPattern = RegExp(r'^[a-zA-Z]+\.\d+@[a-zA-Z]+\.[a-zA-Z]+$');
-    RegExp passwordPattern = RegExp(r'^(?=.*\d)(?=.*[!$#^*]).{8,}$');
+    RegExp passwordPattern = RegExp(r'^(?=.*\d)(?=.*[!$#^*@]).{8,}$');
     if(email.isEmpty){
       MessageWidget.showSnackBar('emptyMail'.tr, AppColors.red);
       return false;
