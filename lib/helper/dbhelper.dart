@@ -7,17 +7,28 @@ class DatabaseHelper {
 
   DatabaseHelper._init();
 
+  /// Returns the database instance.
+  ///
+  /// If the database has not been initialized, it will be initialized first.
+  /// Returns the initialized database.
   Future<Database> get database async {
     _database ??= await _initDatabase();
     return _database!;
   }
 
+  /// Initializes the database.
+  ///
+  /// Returns the initialized database.
   Future<Database> _initDatabase() async {
     final databasesPath = await getDatabasesPath();
     final path = join(databasesPath, 'my_database.db');
     return await openDatabase(path, version: 1, onCreate: _createDatabase);
   }
 
+  /// Creates the database tables and schema.
+  ///
+  /// [db] - The database instance.
+  /// [version] - The database version.
   Future<void> _createDatabase(Database db, int version) async {
     await db.execute('''
       CREATE TABLE my_table (
@@ -28,6 +39,11 @@ class DatabaseHelper {
     ''');
   }
 
+  /// Inserts user data into the database.
+  ///
+  /// [email] - The email of the user.
+  /// [password] - The password of the user.
+  /// [loginCount] - The login count of the user.
   Future<void> insert(String email, String password, int loginCount) async {
     final db = await instance.database;
     await db.insert(
@@ -41,6 +57,14 @@ class DatabaseHelper {
     );
   }
 
+  /// Checks if a user with the given email and password exists in the database.
+  ///
+  /// [email] - The email of the user.
+  /// [password] - The password of the user.
+  ///
+  /// Returns a map with the following keys:
+  /// - 'exists' (bool): Indicates if the user exists in the database.
+  /// - 'data' (int): The updated login count if the user exists.
   Future<Map<String, dynamic>?> isUserStored(String email, String password) async {
     final db = await database;
     final result = await db.query(
