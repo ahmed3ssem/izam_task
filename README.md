@@ -1,16 +1,25 @@
-# izam_task
+# IZAM Task
 
-A new Flutter project.
+This project is a task for IZAM company. It includes the implementation of a login screen UI design, email and password validation, feedback messages for successful login and validation errors, as well as SQLite database integration to store login information.
+
+## Features
+
+- Login screen UI design
+- Email and password validation
+- Feedback messages for successful login and validation errors
+- SQLite database integration to store login information
+
+## Version
+
+- Flutter version: 3.10.0
+- Dart version: 3.0.0
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To get started with the project, follow these steps:
 
-A few resources to get you started if this is your first Flutter project:
+1. Clone the repository:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+   ```bash
+   git clone [https://github.com/ahmed3ssem/izam_task]
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
