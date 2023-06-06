@@ -8,7 +8,7 @@ This project is a task for IZAM company. It includes the implementation of a log
 - Email and password validation
 - Feedback messages for successful login and validation errors
 - SQLite database integration to store login information
-- Add Unit test & Widget Test 
+- Add Unit test 
 
 ## Version
 
