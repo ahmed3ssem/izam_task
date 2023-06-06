@@ -1,4 +1,5 @@
-import '../../view/home/login_view_component.dart';
+import 'package:izam_task/view/login/login_view_component.dart';
+
 
 class LoginPresenterComponent{
 

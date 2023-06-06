@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:izam_task/view/login/login_view.dart';
 import 'package:izam_task/widget/message_widget.dart';
 import 'package:provider/provider.dart';
 import 'utils/app_colors.dart';
 import 'utils/app_setting.dart';
 import 'utils/local_strings.dart';
-import 'view/home/login_view.dart';
 
-void main() async{
+
+void main(){
   runApp(const MyApp());
 }
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:izam_task/presenter/home/login_presenter.dart';
-import 'package:izam_task/presenter/home/login_presenter_component.dart';
+import 'package:izam_task/presenter/login/login_presenter.dart';
+import 'package:izam_task/presenter/login/login_presenter_component.dart';
 import 'package:izam_task/utils/app_colors.dart';
 import 'package:izam_task/widget/button_widget.dart';
 import 'package:izam_task/widget/text_field_widget.dart';
