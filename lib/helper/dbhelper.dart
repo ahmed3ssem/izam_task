@@ -8,10 +8,7 @@ class DatabaseHelper {
   DatabaseHelper._init();
 
   Future<Database> get database async {
-    if (_database != null) {
-      return _database!;
-    }
-    _database = await _initDatabase();
+    _database ??= await _initDatabase();
     return _database!;
   }
 
@@ -63,9 +60,8 @@ class DatabaseHelper {
 
       return {'exists': true, 'data': updatedLoginCount};
     } else {
-      insert(email, password, 1);
+      await insert(email, password, 1);
       return {'exists': false};
     }
   }
-
 }

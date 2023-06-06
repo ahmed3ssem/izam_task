@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../utils/app_colors.dart';
 
 class TextFieldWidget extends StatefulWidget {
-
   final double height;
   final double width;
   final TextEditingController controller;
@@ -13,15 +12,23 @@ class TextFieldWidget extends StatefulWidget {
   final bool isPasswordTextField;
   final TextInputType keyboardType;
 
-  const TextFieldWidget({super.key,required this.height , required this.width  , required this.controller , required this.prefixIcon , required this.hintText , required this.isPasswordTextField , required this.keyboardType});
+  const TextFieldWidget({
+    Key? key,
+    required this.height,
+    required this.width,
+    required this.controller,
+    required this.prefixIcon,
+    required this.hintText,
+    required this.isPasswordTextField,
+    required this.keyboardType,
+  }) : super(key: key);
 
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
 }
 
 class _TextFieldWidgetState extends State<TextFieldWidget> {
-  bool passwordVisible = false;
-
+  late bool passwordVisible;
 
   @override
   void initState() {
@@ -39,15 +46,16 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         keyboardType: widget.keyboardType,
         obscureText: passwordVisible,
         style: TextStyle(
-            fontSize: 18.sp,
-            color: AppColors.black,
+          fontSize: 18.sp,
+          color: AppColors.black,
         ),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.only(top: ScreenUtil().setHeight(10)),
-          isDense: true, 
-          fillColor: AppColors.grey500,
+          isDense: true,
           filled: true,
-          suffixIcon: widget.isPasswordTextField ? IconButton(
+          fillColor: AppColors.grey500,
+          suffixIcon: widget.isPasswordTextField
+              ? IconButton(
             icon: Icon(
               passwordVisible
                   ? Icons.visibility_off
@@ -59,7 +67,8 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                 passwordVisible = !passwordVisible;
               });
             },
-          ) : const SizedBox(),
+          )
+              : null,
           hintText: widget.hintText,
           border: InputBorder.none,
           prefixIcon: widget.prefixIcon,
@@ -68,4 +77,3 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
     );
   }
 }
-

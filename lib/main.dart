@@ -8,12 +8,11 @@ import 'utils/app_colors.dart';
 import 'utils/app_setting.dart';
 import 'utils/local_strings.dart';
 
-
-void main(){
+void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
@@ -22,29 +21,19 @@ class MyApp extends StatelessWidget{
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context , child) => MultiProvider(
+      builder: (context, child) => MultiProvider(
         providers: [
-          ChangeNotifierProvider.value(value: AppSettings()),
+          ChangeNotifierProvider<AppSettings>(create: (_) => AppSettings()),
         ],
-        child: MaterialApp(
-          builder: (context, widget) {
-            return MediaQuery(
-              //Setting font does not change with system font size
-              data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-              child: GetMaterialApp(
-                translations: LocalStrings(),
-                locale: const Locale('en', 'US'),
-                fallbackLocale: const Locale('en', 'US'),
-                theme: ThemeData(
-                  appBarTheme: const AppBarTheme(
-                      color: AppColors.primaryColor
-                  ),
-                ),
-                home: const LoginView(),
-                scaffoldMessengerKey: MessageWidget.scaffoldMessengerKey,
-              ),
-            );
-          },
+        child: GetMaterialApp(
+          translations: LocalStrings(),
+          locale: const Locale('en', 'US'),
+          fallbackLocale: const Locale('en', 'US'),
+          theme: ThemeData(
+            appBarTheme: const AppBarTheme(color: AppColors.primaryColor),
+          ),
+          home: const LoginView(),
+          scaffoldMessengerKey: MessageWidget.scaffoldMessengerKey,
         ),
       ),
     );
