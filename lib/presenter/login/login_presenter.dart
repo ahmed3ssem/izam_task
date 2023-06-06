@@ -8,26 +8,24 @@ import 'login_presenter_component.dart';
 class LoginPresenter implements LoginPresenterComponent {
   late LoginViewComponent component;
 
-  /// Validates the email and password and performs necessary checks.
+  /// Checks the login status of the user based on the provided email and password.
+  /// Displays a success message if the user is logged in successfully.
+  /// Displays a first-time login message if it's the user's first login.
   ///
-  /// Returns true if the email and password are valid; false otherwise.
+  /// @param string email
+  /// @param string password
   @override
   bool checkEmailAndPassword(String email, String password) {
     final emailPattern = RegExp(r'^[a-zA-Z]+\.\d+@[a-zA-Z]+\.[a-zA-Z]+$');
     final passwordPattern = RegExp(r'^(?=.*\d)(?=.*[!$#^*@]).{8,}$');
 
-    if (email.isEmpty) {
-      MessageWidget.showSnackBar('emptyMail'.tr, AppColors.red);
+    if (email.isEmpty || password.isEmpty) {
+      MessageWidget.showSnackBar('emptyMailOrPassword'.tr, AppColors.red);
       return false;
     }
 
     if (!emailPattern.hasMatch(email)) {
       MessageWidget.showSnackBar('wrongValidateEmail'.tr, AppColors.red);
-      return false;
-    }
-
-    if (password.isEmpty) {
-      MessageWidget.showSnackBar('emptyPassword'.tr, AppColors.red);
       return false;
     }
 

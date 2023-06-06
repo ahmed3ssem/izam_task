@@ -16,9 +16,8 @@ class LocalStrings extends Translations {
       "loginPhase":"Welcome , Log In",
       "firstTimeLogin":"This is your first time login.",
       "loginSuccess":"Congrats , this is the logging number ",
-      "emptyMail":"Please enter your email.",
+      "emptyMailOrPassword":"Email and password shouldn't be empty.",
       "wrongValidateEmail":"Your email isn't valid , your email should be like ahmed.233@izam.com",
-      "emptyPassword":"Please enter your email.",
       "wrongValidatePassword":"Your password isn't valid , your password should be no less than 8 characters, and at least 1 number, and one special character.",
     },
   };

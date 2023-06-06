@@ -84,7 +84,7 @@ class DatabaseHelper {
 
       return {'exists': true, 'data': updatedLoginCount};
     } else {
-      await insert(email, password, 1);
+      insert(email, password, 1);
       return {'exists': false};
     }
   }
