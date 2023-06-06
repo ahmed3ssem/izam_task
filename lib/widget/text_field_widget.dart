@@ -43,6 +43,8 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
             color: AppColors.black,
         ),
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.only(top: ScreenUtil().setHeight(10)),
+          isDense: true, 
           fillColor: AppColors.grey500,
           filled: true,
           suffixIcon: widget.isPasswordTextField ? IconButton(

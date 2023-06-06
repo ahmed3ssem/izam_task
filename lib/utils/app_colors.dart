@@ -28,5 +28,6 @@ class AppColors{
   static const redAlertColor = Color(0xFFdc3545);
   static const blogContainerColor = Color(0xFFDDE1EC);
   static const lightBlue = Colors.blue;
+  static const fontColor = Color(0xFF213242);
 
 }
